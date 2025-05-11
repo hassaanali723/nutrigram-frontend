@@ -1,0 +1,33 @@
+{
+  "name": "nutrigram-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "tunnel": "ngrok http 3000"
+  },
+  "dependencies": {
+    "@types/react": "^19.1.2",
+    "@uploadthing/react": "^7.3.0",
+    "axios": "1.6.8",
+    "firebase": "^11.6.1",
+    "next": "14.2.3",
+    "nookies": "^2.5.2",
+    "prop-types": "^15.8.1",
+    "react": "18.2.0",
+    "react-circular-progressbar": "^2.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "^7.5.3",
+    "uploadthing": "^7.6.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.4.17",
+    "ngrok": "^5.0.0-beta.2",
+    "postcss": "8.4.32",
+    "tailwindcss": "3.4.3",
+    "typescript": "5.8.3"
+  }
+}
