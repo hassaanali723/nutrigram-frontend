@@ -39,10 +39,12 @@ export default function FoodCard({ entry, onDelete }) {
       className="w-full max-w-sm bg-white rounded-lg shadow-sm overflow-hidden mb-3 relative group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={() => setShowMore(!showMore)}
+      style={{ cursor: 'pointer' }}
     >
       {/* Delete button */}
       <button
-        onClick={handleDelete}
+        onClick={e => { e.stopPropagation(); handleDelete(); }}
         className={`absolute top-2 right-2 z-10 p-1 rounded-full bg-red-100 hover:bg-red-200 transition-opacity duration-200 ${
           isHovered ? 'opacity-100' : 'opacity-0'
         }`}
@@ -88,7 +90,7 @@ export default function FoodCard({ entry, onDelete }) {
       )}
 
       {/* Main card content */}
-      <div className="flex p-3">
+      <div className="flex p-3 select-none">
         {/* Left side - Image */}
         <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
           <img
@@ -99,14 +101,15 @@ export default function FoodCard({ entry, onDelete }) {
         </div>
 
         {/* Right side - Content */}
-        <div className="flex-1 ml-3">
-          <div className="flex items-center justify-between pr-8">
+        <div className="flex-1 ml-3 flex flex-col justify-center">
+          <div className="flex items-center space-x-2">
             <h3 className="font-medium text-gray-900">{dish_name || 'Dish'}</h3>
             <button 
-              onClick={() => setShowMore(!showMore)}
-              className="text-gray-400 hover:text-gray-600 ml-2"
+              onClick={e => { e.stopPropagation(); setShowMore(!showMore); }}
+              className="text-gray-400 hover:text-gray-600"
               aria-expanded={showMore}
               aria-controls={`nutrition-details-${timestamp}`}
+              tabIndex={0}
             >
               <svg 
                 className={`w-5 h-5 transform transition-transform ${showMore ? 'rotate-180' : ''}`} 
